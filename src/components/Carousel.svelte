@@ -15,9 +15,11 @@
 </script>
 
 <div id="cascade">
-    {#each [images[imageIndex]] as image (imageIndex)}
-        <img id="cascade__img"  src={image} alt="alt" transition:fade="{{duration:1000}}"/>
-    {/each}
+
+    {#key imageIndex}
+        <img id="cascade__img"  src={images[imageIndex]} alt="alt" transition:fade="{{duration:1000}}"/>
+    {/key}
+
     <button class="fas fa-camera" on:click={nextImage}></button>
 </div>
 
