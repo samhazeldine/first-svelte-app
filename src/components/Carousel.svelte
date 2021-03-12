@@ -12,28 +12,24 @@
     function nextImage() {
         imageIndex = (imageIndex + 1) % images.length;
     }
-
 </script>
-
 
 <div id="cascade">
     {#each [images[imageIndex]] as image (imageIndex)}
         <img id="cascade__img"  src={image} alt="alt" transition:fade="{{duration:1000}}"/>
     {/each}
+    <button class="fas fa-camera" on:click={nextImage}></button>
 </div>
-
-<button on:click={nextImage}> Next Image </button>
-
-<p> I want this below</p>
 
 <style>
     #cascade {
         position:relative;
+        height: 200px;
     }
     #cascade__img {
         position:absolute;
     }
-    button{
-        position:relative;
+    button {
+        position:absolute;
     }
 </style>
