@@ -2,9 +2,9 @@
     import { fade } from "svelte/transition";
 
     const images = [
-        "http://placekitten.com/200/200",
-        "http://placekitten.com/202/202",
-        "http://placekitten.com/201/201",
+        "http://placekitten.com/700",
+        "http://placekitten.com/600",
+        "http://placekitten.com/500",
     ];
 
     let imageIndex = 0;
@@ -20,18 +20,37 @@
         <img id="cascade__img"  src={images[imageIndex]} alt="alt" transition:fade="{{duration:1000}}"/>
     {/key}
 
-    <button class="fas fa-camera" on:click={nextImage}></button>
+    <button id="cascade__right" on:click={nextImage}> right </button>
+    <button id="cascade__left" on:click={nextImage}> left </button>
 </div>
+
+<p>test</p>
 
 <style>
     #cascade {
         position:relative;
-        height: 200px;
     }
+
     #cascade__img {
         position:absolute;
+        max-width:80%;
     }
-    button {
+
+    #cascade__right, 
+    #cascade__left {
         position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        cursor:pointer;
     }
+
+    #cascade__right {
+        right:5px;
+    }
+    
+    #cascade__left {
+        left:5px;
+    }
+
+  
 </style>
